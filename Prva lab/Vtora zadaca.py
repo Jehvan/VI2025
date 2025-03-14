@@ -3,8 +3,8 @@ from searching_framework import Problem, \
 # define your Problem class here
 
 
-def bounds(x):
-    if 0 <= x[0] < 8 and 0 <= x[1] < 6:
+def bounds(tmp):
+    if 0 <= tmp[0] < 8 and 0 <= tmp[1] < 6:
         return True
     return False
 
@@ -25,7 +25,7 @@ def check_state(state,protivnici):
     )
     if state[0] in protivnici:
         return False
-    if state[1] in okolina_protivnici or state[1] in okolina_protivnici:
+    if state[1] in okolina_protivnici:
         return False
     if bounds(state[0]) and bounds(state[1]):
         return True
