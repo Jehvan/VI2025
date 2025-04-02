@@ -76,7 +76,7 @@ if __name__ == '__main__':
     kuka = (int(vlez_kuka_x), int(vlez_kuka_y),vlez_nasoka)
     explorer = Explorer ((covece,kuka), allowed)
 
-    rez = breadth_first_graph_search(explorer)
+    rez = astar_search(explorer,explorer.h)
     if rez is not None:
         print(rez.solution())
     else: print("a")
