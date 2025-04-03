@@ -17,7 +17,6 @@ class Explorer(Problem):
             "Gore":(0,1),
             "Dolu":(0,-1),
             "Levo":(-1,0),
-            "Desno":(1,0),
             "Desno 2":(2,0),
             "Desno 3":(3,0)
         }
@@ -65,9 +64,7 @@ if __name__ == '__main__':
     walls =[]
     for i in range(n):
         wall = input().split(",")
-        wall[0] = int(wall[0])
-        wall[1] = int(wall[1])
-        walls.append((wall[0],wall[1]))
+        walls.append(tuple(map(int,(wall[0],wall[1]))))
     input_covece = input().split(",")
     covece = tuple((int(input_covece[0]), int(input_covece[1])))
     input_kuka = input().split(",")
