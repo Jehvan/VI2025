@@ -24,13 +24,14 @@ class Explorer(Problem):
 
         for move in moves:
             dvizenje = moves[move]
-            new_x, new_y = covek[0] + dvizenje[0], covek[1] + dvizenje[1]
+            new_covek = covek[:]
+            new_x, new_y = new_covek[0] + dvizenje[0], new_covek[1] + dvizenje[1]
             if 0 <= new_x < self.size and 0 <= new_y < self.size and (new_x, new_y) not in self.walls:
                 if move == "Desno 2":
-                    if (covek[0] + 1, new_y) not in self.walls:
+                    if (new_covek[0] + 1, new_y) not in self.walls:
                         successors[move] = (new_x, new_y)
                 elif move == "Desno 3":
-                    if (covek[0] + 1, new_y) not in self.walls and (covek[0] + 2, new_y) not in self.walls:
+                    if (new_covek[0] + 1, new_y) not in self.walls and (new_covek[0] + 2, new_y) not in self.walls:
                         successors[move] = (new_x, new_y)
                 else:
                     successors[move] = (new_x, new_y)
