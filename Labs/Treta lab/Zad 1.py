@@ -18,7 +18,7 @@ dataset_sample = [['C', 'S', 'O', '1', '2', '1', '1', '2', '1', '2', '0'],
 if __name__ == '__main__':
 # Vashiot kod tuka
     encoder = OrdinalEncoder()
-    encoder.fit([row [: -1] for row in dataset])
+    encoder.fit([row for row in dataset])
     train_set = dataset[:int(len(dataset)*0.75)]
     train_x = [row [: -1] for row in train_set]
     train_y = [row [-1] for row in train_set]
