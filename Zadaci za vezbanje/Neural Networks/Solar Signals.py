@@ -1,7 +1,5 @@
 import os
 
-from sklearn.metrics import accuracy_score
-
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
 import warnings
@@ -428,20 +426,45 @@ data = [
      0.1302, 1]]
 
 if __name__ == '__main__':
-    train_set = data[:int(0.8*len(data))]
-    val_set = data[int(0.8*len(data)):]
+    class_0 = []
+    for row in data:
+        if row[-1] == 0:
+            class_0.append(row)
+    class_1 = []
+
+    for row in data:
+        if row[-1] == 1:
+            class_1.append(row)
+    train_0 = class_0[:int(len(class_0) * 0.8)]
+    test_0 = class_0[int(len(class_0) * 0.8):]
+    train_1 = class_1[:int(len(class_1) * 0.8)]
+    test_1 = class_1[int(len(class_1) * 0.8):]
+
+    train_set = train_0 + train_1
+    test_set = test_0 + test_1
 
     train_x = [row[:-1] for row in train_set]
     train_y = [row[-1] for row in train_set]
-    val_x = [row[:-1] for row in val_set]
-    val_y = [row[-1] for row in val_set]
-    rate = float(input())
-    iterations = int(input())
+    test_x = [row[:-1] for row in test_set]
+    test_y = [row[-1] for row in test_set]
 
-    classifier = MLPClassifier(6,activation='tanh',max_iter=iterations,learning_rate_init=rate,random_state=0)
+    rate = float(input())
+    epoch_num = int(input())
+
+    classifier = MLPClassifier(hidden_layer_sizes=6, max_iter=epoch_num, learning_rate_init=rate,activation='tanh',random_state=0)
 
     classifier.fit(train_x, train_y)
 
-    predictions = classifier.predict(val_x)
+    predictions = classifier.predict(test_x)
 
-    print(accuracy_score(val_y, predictions))
+    accuracy_train = classifier.score(train_x, train_y)
+    accuracy_test = classifier.score(test_x, test_y)
+    diff = accuracy_train/accuracy_test - 1
+
+    if diff > 0.15:
+        print("Se sluchuva overfitting")
+    else:
+        print("Ne se sluchuva overfitting")
+    print("Tochnost so trenirachko mnozhestvo:",accuracy_train)
+    print("Tochnost so validacisko mnozhestvo:",accuracy_test)
+
