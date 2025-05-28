@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
-#from dataset_script import dataset  # this will import the dataset on coderunner at courses
+#from dataset_script import dataset_script  # this will import the dataset_script on coderunner at courses
 from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, OrdinalEncoder
 

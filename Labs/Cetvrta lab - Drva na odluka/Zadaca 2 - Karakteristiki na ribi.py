@@ -4,10 +4,10 @@ from sklearn.ensemble import RandomForestClassifier
 
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 #from submission_script import *
-#from dataset_script import dataset
+#from dataset_script import dataset_script
 from zad2_dataset import dataset
 # Ova e primerok od podatochnoto mnozestvo, za treniranje/evaluacija koristete ja
-# importiranata promenliva dataset
+# importiranata promenliva dataset_script
 dataset_sample = [[180.0, 23.6, 25.2, 27.9, 25.4, 14.0, 'Roach'],
                   [12.2, 11.5, 12.2, 13.4, 15.6, 10.4, 'Smelt'],
                   [135.0, 20.0, 22.0, 23.5, 25.0, 15.0, 'Perch'],

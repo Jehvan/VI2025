@@ -6,9 +6,9 @@ from sklearn.metrics import accuracy_score
 
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 #from submission_script import *
-#from dataset_script import dataset
+#from dataset_script import dataset_script
 # Ova e primerok od podatochnoto mnozestvo, za treniranje/evaluacija koristete ja
-# importiranata promenliva dataset
+# importiranata promenliva dataset_script
 dataset_sample = [['1', '35', '12', '5', '1', '100', '0'],
                   ['1', '29', '7', '5', '1', '96', '1'],
                   ['1', '50', '8', '1', '3', '132', '0'],

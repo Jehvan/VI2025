@@ -5,10 +5,10 @@ from sklearn.preprocessing import OrdinalEncoder
 
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 #from submission_script import *
-#from dataset_script import dataset
+#from dataset_script import dataset_script
 
 # Ova e primerok od podatochnoto mnozestvo, za treniranje/evaluacija koristete ja
-# importiranata promenliva dataset
+# importiranata promenliva dataset_script
 dataset_sample = [['C', 'S', 'O', '1', '2', '1', '1', '2', '1', '2', '0'],
                   ['D', 'S', 'O', '1', '3', '1', '1', '2', '1', '2', '0'],
                   ['C', 'S', 'O', '1', '3', '1', '1', '2', '1', '1', '0'],
